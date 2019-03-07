@@ -14,6 +14,7 @@ import ij.process.ImageProcessor;
 import ijopencv.ij.ImagePlusMatConverter;
 import ijopencv.opencv.MatImagePlusConverter;
 
+//this is used after initial component labelling phase to dilate components for RGB labelling
 public class dilateForVisualization {
 	ImagePlus image;
 	ImagePlus outputImage;
