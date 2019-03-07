@@ -87,7 +87,7 @@ public class NeuralTracer3D_run implements Command {
 	          BufferedImage rawIMG = imp.getStack().getProcessor(i).getBufferedImage();			  
 		  String stri = "" + i;
 		  try {
-		      File f = new File("/Users/markolchanyi/Desktop/Trace/" + "test" + stri + ".jpg");  //output file path
+		      File f = new File("/Users/..." + "test" + stri + ".jpg");  //output file path
 		      ImageIO.write(rawIMG, "jpg", f);
 		      System.out.println("Writing complete.");
 		   }catch(IOException e){
