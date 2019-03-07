@@ -79,6 +79,22 @@ public class NeuralTracer3D_run implements Command {
 	      twoComponentLabelling3d cmpl = new twoComponentLabelling3d(dup2, outISO, soma_pts_to_trace);
 	      cmpl.run();
 	      System.out.println("done");
+		
+		  
+	      //if output path is needed to be written/redirected to external source for memory puposes, use this block 
+	      //of scipt. If not then delete
+	      for(int i = 1; i < 11; i++) {
+	          BufferedImage rawIMG = imp.getStack().getProcessor(i).getBufferedImage();			  
+		  String stri = "" + i;
+		  try {
+		      File f = new File("/Users/markolchanyi/Desktop/Trace/" + "test" + stri + ".jpg");  //output file path
+		      ImageIO.write(rawIMG, "jpg", f);
+		      System.out.println("Writing complete.");
+		   }catch(IOException e){
+		       System.out.println("Error: "+e);
+	            }
+	         }    
+	      }
 	  }
 	  
 	  public static void main(final String[] args) throws Exception {
