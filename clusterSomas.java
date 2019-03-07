@@ -6,7 +6,12 @@ import org.bytedeco.javacpp.opencv_core.KeyPointVectorVector;
 
 import io.github.joheras.Point3d;
 
+//This class uses distance-based clustering of the centroids of somas 
+//obtained from the find_somas class to find a single COM centroid to use for connected-
+//component labelling
+
 public class clusterSomas {
+	//constructor requires voxel depth and original keypoint vector of vectors of soma depth 
 	public clusterSomas(KeyPointVectorVector soma_points1,int z_dim1) {
 		z_dim = z_dim1;
 		soma_points = soma_points1;
@@ -88,7 +93,8 @@ public class clusterSomas {
 	              }
 	        }	       
 	        soma_pts_to_trace = soma_out;
-	 }	 
+	 }	
+	//simple euclidean distance 
 	 public int distance3d(Point3d pt1,Point3d pt2)	{
 	        int dist=0;	       
 	        dist=(int)Math.sqrt(Math.pow(pt1.getx()-pt2.getx(), 2)+Math.pow(pt1.gety()-pt2.gety(), 2)+9*Math.pow(pt1.getz()-pt2.getz(), 2));       
