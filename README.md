@@ -3,4 +3,6 @@ Faster 3D segmentation algorithm ideal for high-resolution image stacks of corti
 
 Java wrapper for OpenCV can be found via this link: https://github.com/joheras/IJ-OpenCV
 
+Download ImageJ Skeletonization3D API here: https://github.com/fiji/Skeletonize3D/releases/tag/Skeletonize3D_-2.1.1
+
 Download ImageJ/Fiji here: https://imagej.net/Fiji/Downloads
