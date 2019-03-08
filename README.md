@@ -2,11 +2,14 @@
 Faster 3D segmentation algorithm ideal for high-resolution image stacks of cortical neurones. Using slice-by-slice canny edge detection (openCV) followed by two-pass component labelling. Parallel Soma detection using openCV's Simple Blob Detection. Manual inputs required for min soma area, threshold, and circularity. Example _run script included. Only run this script. 
 
 
+
+
+
+
 A neuron tracing algorithm strives to take a 3D grayscale image and output a forest of clearly-defined neurons, where each neuron is a rooted tree graph model. To obtain this forest, Neurotracer starts with canny edge detection. This generates a binary map, which is dilated to fill in the edges. The resulting map is skeletonized. In parallel, all the somas are found in the image via a blob detector. The somas are filled and the image undergoes two-pass connected component labelling, with the soma points as the seed points. Statistics, such as endpoints, bifurcation points, and approximate axonal length can be found from the skeleton. Finally, the skeleton is usually dilated for easy viewing.
 Our ImageJ Plug-in makes extensive use of the OpenCV library and Skeletonize3D (ImageJ Plugin). One downside of the OpenCV library is that it has little 3D functionality. However, we were able to achieve sufficient results and effectively speed up the algorithm by applying the library functions on 2D 	slices.
 
 
-Fig. 1 - Neurotracer Programming Flowchart
 A. Binary Segmentation
 	To obtain a binary segmentation map, Neurotracer applies the OpenCV canny edge detection function slice-by-slice. We chose Canny edge detection to initially filter the image, because it gave the best output when compared to other methods, such as LoG (Laplacian of Gaussian), non-local means denoising, and median filtering. To create a filled-in segment, Neurotracer dilates the binary image. Other filling methods are not feasible because of irregular morphology. Finally, Neurotracer performs a medial axis transform by iterative thinning through calculations of the object boundary distance transforms on the filled in binary map, via the skeletonize3D Plugin, to create a skeleton to trace and to locate the endpoints and bifurcation points. 
 B. Soma Detection
@@ -29,6 +32,11 @@ NIA
 Neurotracer
 4835 matches out of 7206 total feature points.
 27 good matches.
+
+
+
+
+
 
 
 
